@@ -13,3 +13,28 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Android Studio
+.gradle
+gradlew
+gradlew.bat
+build/
+app/google-services.json
+/.idea/workspace.xml
+.idea/
+/local.properties
+/*/local.properties
+/*/out
+/*/*/build
+/*/*/production
+*.iml
+*~
+*.swp
+*.ipr
+*.iws
+
+# backup files
+*.bak
+
+# gitignore
+gradle/wrapper/gradle-wrapper.properties
