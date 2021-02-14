@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         linearLayoutProgress.setOnTouchListener { v, event -> true }
     }
 
-    fun setTextChangeListener(et: EditText, til: TextInputLayout) {
+    private fun setTextChangeListener(et: EditText, til: TextInputLayout) {
         et.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         })
     }
 
-    fun onLogin() {
+    private fun onLogin() {
         var proceed = true
         if(editTextEmail.text.isNullOrEmpty()) {
             textInputLayoutEmail.error = "Email is required"
@@ -83,8 +83,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun goToSignUp() {
-
+    private fun goToSignUp() {
+        startActivity(SignUpActivity.newIntent(this))
+        finish()
     }
 
     override fun onClick(v: View) {
