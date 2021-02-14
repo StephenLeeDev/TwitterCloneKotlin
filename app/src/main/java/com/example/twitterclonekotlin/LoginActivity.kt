@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -26,6 +27,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     lateinit var buttonLogin : Button
+    lateinit var textViewSignUp : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         buttonLogin = findViewById(R.id.buttonLogin)
         buttonLogin.setOnClickListener(this::onClick)
+
+        textViewSignUp = findViewById(R.id.textViewSignUp)
+        textViewSignUp.setOnClickListener(this::onClick)
 
         setTextChangeListener(editTextEmail, textInputLayoutEmail)
         setTextChangeListener(editTextPassword, textInputLayoutPassword)
@@ -58,22 +63,22 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private fun onLogin() {
         var proceed = true
         if(editTextEmail.text.isNullOrEmpty()) {
-            textInputLayoutEmail.error = "Email is required"
+            textInputLayoutEmail.error = getString(R.string.email_is_required)
             textInputLayoutEmail.isErrorEnabled = true
             proceed = false
-        }
-        if(editTextPassword.text.isNullOrEmpty()) {
-            textInputLayoutPassword.error = "Password is required"
+        } else if(editTextPassword.text.isNullOrEmpty()) {
+            textInputLayoutPassword.error = getString(R.string.password_is_required)
             textInputLayoutPassword.isErrorEnabled = true
             proceed = false
         }
+
         if(proceed) {
             linearLayoutProgress.visibility = View.VISIBLE
             firebaseAuth.signInWithEmailAndPassword(editTextEmail.text.toString(), editTextPassword.text.toString())
                 .addOnCompleteListener { task ->
                     if(!task.isSuccessful) {
                         linearLayoutProgress.visibility = View.GONE
-                        Toast.makeText(this@LoginActivity, "Login error: ${task.exception?.localizedMessage}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginActivity, getString(R.string.login_error) + task.exception?.localizedMessage, Toast.LENGTH_SHORT).show()
                     }
                 }
                 .addOnFailureListener { e ->

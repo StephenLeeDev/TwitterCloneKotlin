@@ -6,4 +6,12 @@
     <string name="go_to_sign_up">No account? Go to Sign Up</string>
     <string name="username">Username</string>
     <string name="go_to_login">Already have an account? Go to Login</string>
+    <string name="email_is_required">Email is required</string>
+    <string name="password_is_required">Password is required</string>
+    <string name="login_error">Login error : %1$s</string>
+    <string name="sign_up_error">SignUp error : %1$s</string>
+    <string name="username_is_require">Username is required</string>
+    <string name="confirm_password_is_required">Confirm password is required</string>
+    <string name="password_ismatch">Password mismatch</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
