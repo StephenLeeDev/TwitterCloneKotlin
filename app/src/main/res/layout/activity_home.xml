@@ -25,7 +25,7 @@
             app:cardCornerRadius="@dimen/standard_corner_radius">
 
             <ImageView
-                android:id="@+id/imageViewLogo"
+                android:id="@+id/logo"
                 android:layout_width="@dimen/standard_image"
                 android:layout_height="@dimen/standard_image"
                 android:scaleType="centerCrop"
@@ -34,7 +34,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textViewTitleBar"
+            android:id="@+id/titleBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/standard_image"
@@ -45,7 +45,7 @@
             />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewSearchBar"
+            android:id="@+id/searchBar"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
@@ -55,7 +55,7 @@
             android:layout_marginStart="60dp">
 
             <EditText
-                android:id="@+id/editTextSearch"
+                android:id="@+id/search"
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="@dimen/search_height"
                 android:textColorHint="@color/dark_grey"
@@ -73,29 +73,42 @@
 
     </androidx.cardview.widget.CardView>
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/standard_height"
+        android:layout_marginBottom="@dimen/grid_2x"
+        app:tabIndicator="@null"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/selector_home"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/selector_search"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabMyActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/selector_myactivity"/>
+    </com.google.android.material.tabs.TabLayout>
+
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tabs"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
-
-        <TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/standard_height"
-            android:layout_marginBottom="@dimen/grid_2x"
-            app:tabIndicator="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
-
-    </androidx.viewpager.widget.ViewPager>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating"
@@ -103,7 +116,7 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/feather"
         android:layout_margin="@dimen/grid_3x"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tabs"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <LinearLayout
