@@ -1,4 +1,4 @@
-package com.example.twitterclonekotlin
+package com.example.twitterclonekotlin.activities
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.twitterclonekotlin.R
 import com.example.twitterclonekotlin.Util.DATA_USERS
 import com.example.twitterclonekotlin.Util.User
 import com.google.android.material.textfield.TextInputLayout

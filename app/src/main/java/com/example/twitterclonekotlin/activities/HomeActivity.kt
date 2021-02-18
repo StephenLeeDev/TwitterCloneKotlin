@@ -1,9 +1,10 @@
-package com.example.twitterclonekotlin
+package com.example.twitterclonekotlin.activities
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.twitterclonekotlin.R
 
 class HomeActivity : AppCompatActivity() {
 
